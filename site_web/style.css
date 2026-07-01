@@ -1,0 +1,134 @@
+body {
+    background-image: url("https://www.radiofrance.fr/s3/cruiser-production/2016/08/e70a9c1b-75a3-4703-9ffc-28a20708f15c/1200x680_premier-timelapse.jpg_39_copier_-_copie.webp");
+    background-size:contain;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+table {
+    background-color: white;
+    margin: auto;
+    width: 50%;
+}
+p {
+    color: white;
+    text-align: justify;
+}
+td,tr,th {
+    text-transform: capitalize;
+    border:solid;
+    background-color: bisque;
+    border-color: bisque;
+}
+li {
+    text-transform: capitalize;
+    color:orange;
+    text-decoration: underline;
+}
+p.intro {
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5%;
+    margin: 5px;
+}
+a:link {
+    text-decoration: none;
+    color:rgb(217, 255, 0);
+}
+a:hover {
+    color: rgb(20, 102, 255);
+}
+a:visited {
+    color: purple;
+}
+input {
+    background-color: bisque;
+}
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(250, 23, 224);
+}
+input[type="text"],input[type="email"] {
+    border-radius: 20px;
+}
+#up {
+    display: flex;
+    margin-left: auto;
+    border-radius:50%;
+    border-color:#eb0b0b;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    background-color: #fff;
+}
+a {
+    text-align: center;
+    border: solid gray;
+
+}
+#subtitle {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1,h2,h3 {
+    text-decoration: underline;
+    text-transform: capitalize;
+    color: white;
+    text-align: center;
+}
+#sommaire {
+    list-style: upper-roman;
+}
+input[type="text"]::placeholder,input[type="email"]::placeholder {
+    color:crimson;
+}
+#extra {
+    border: solid;
+}
+#s9 {
+    border: solid;
+    background-color:blue;
+    display:block;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+}
+legend{
+    color: rgb(250, 23, 224);
+}
+form {
+    border: solid, white;
+    margin: 5%;
+    
+}
+#barre {
+    background-color:gray;
+    border: solid,#290867;
+    height: 100%;
+    display:flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+#site {
+    background-color: #290867;
+    display: block;
+    margin: auto;
+    width: 30%;
+}
+#apprendre {
+    margin:  auto;
+    width: fit-content;
+}
+video {
+    display: block;
+    margin: auto;
+}
+#preference {
+    display: block;
+    margin: auto;
+}
+#s9:hover {
+    background-color: #0beb1a;
+}
