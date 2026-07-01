@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../evens/css/bootstrap.min.css">
+    <title>calculatrice windows</title>
+</head>
+<body>
+   <div class="container bg-dark w-50">
+    <div class="row text-white mt-2">
+        <h4>Calculatrice</h4>
+        <h3>Scientifique</h3>
+        <div class="form-group">
+            <input type="text" id="resultat" placeholder="0" class="text-end w-100 p-4" readonly>
+        </div>
+        <div class="form-group mt-3">
+            <table>
+                <tr>
+                    <td>
+                        <input type="submit" id="DEG" value="DEG" class="btn btn-dark text-white ms-3">
+                    </td>
+                    <td>
+                        <input type="submit" id="F-E" value="F-E" class="btn btn-dark text-white ms-3">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" id="MC" value="MC" class="btn btn-dark text-white ms-3">
+                    </td>
+                    <td>
+                        <input type="submit" id="MR" value="MR" class="btn btn-dark text-white ms-3">
+                    </td>
+                    <td>
+                        <input type="submit" id="M+" value="M+" class="btn btn-dark text-white ms-3">
+                    </td>
+                    <td>
+                        <input type="submit" id="M-" value="M-" class="btn btn-dark text-white ms-3">
+                    </td>
+                    <td>
+                        <input type="submit" id="MS" value="MS" class="btn btn-dark text-white ms-3">
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <table style="width: 100%;">
+                <tr>
+                    <td><input type="submit" id="second" value="2nd" class="btn btn-dark ps-5"></td>
+                    <td><input type="submit" id="pi" value="&pi;" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="e" value="e" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="clear" value="c" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="retour" value="⇐" class="btn btn-dark pe-5"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="carre" value="x²" class="btn btn-dark ps-5"></td>
+                    <td><input type="submit" id="inverse" value="1/x" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="absolue" value="|x|" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="expo" value="exp" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="modulo" value="mod" class="btn btn-dark pe-5"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="racine carre" value="²√x" class="btn btn-dark ps-5"></td>
+                    <td><input type="submit" id="par1" value="(" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="par2" value=")" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="factorielle" value="n!" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="division" value="÷" class="btn btn-dark pe-5"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="puissance" value="x^y" class="btn btn-dark ps-5"></td>
+                    <td><input type="submit" id="sept" value="7" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="huit" value="8" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="neuf" value="9" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="multiplication" value="x" class="btn btn-dark pe-5"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="puiss de dix" value="10^x" class="btn btn-dark ps-5"></td>
+                    <td><input type="submit" id="quatre" value="4" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="cinq" value="5" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="six" value="6" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="soustraction" value="-" class="btn btn-dark pe-5"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="log" value="log" class="btn btn-dark ps-5"></td>
+                    <td><input type="submit" id="un" value="1" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="deux" value="2" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="trois" value="3" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="addition" value="+" class="btn btn-dark pe-5"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="ln" value="ln" class="btn btn-dark ps-5"></td>
+                    <td><input type="submit" id="negation" value="+/-" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="zero" value="0" class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="virgule" value="," class="btn btn-dark pe-5"></td>
+                    <td><input type="submit" id="egal" value="=" class="btn btn-dark pe-5"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+   </div>
+</body>
+<script src="script.js"></script>
+</html>
