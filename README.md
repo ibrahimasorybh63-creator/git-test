@@ -10,8 +10,8 @@ git-test/
 ├── calculatrice/        # Calculatrice Python + version web
 ├── gestionnaire_taches/ # Gestionnaire de tâches en terminal
 ├── mini_jeu/            # Prototype de mini-jeu de combat
-├── sql/                 # Script SQL de gestion scolaire
-└── site_web/            # Page web (HTML/CSS/JS)
+├── sql/                 # Gestionnaire de boutique (Python + SQLite + pandas)
+└── site_web/            # Portfolio personnel (HTML/CSS/JS)
 ```
 
 ## ⚔️ rpg_game/ — Jeu de combat RPG (projet principal)
@@ -60,15 +60,30 @@ python gestache.py
 
 Premier prototype d'un jeu de combat 1v1 (attaque, attaque spéciale, soin) — version simplifiée ayant servi de base au projet RPG ci-dessus.
 
-## 🗄️ sql/ — Base de données Gestion scolaire
-`geschool.sql`
+## 🗄️ sql/ — Gestionnaire de boutique (Python + SQLite)
+`schema.sql`, `script.py`, `entite.py`, `main.py`
 
-Script SQL de création et manipulation d'une base de données pour la gestion d'un établissement scolaire (tables, contraintes, requêtes).
+Application console de gestion d'une boutique (produits, clients, commandes), en Python et SQLite (module `sqlite3`), avec affichage des résultats via `pandas`.
 
-## 🌐 site_web/ — Page web
+**Structure :**
+- `schema.sql` — définition des 4 tables (`clients`, `produits`, `commandes`, `details_comm`), avec clés étrangères et clé primaire composite pour la table de jonction `details_comm`
+- `script.py` — initialise la base `boutique.db` à partir de `schema.sql` (à lancer une seule fois)
+- `entite.py` — classes `Produit`, `Clients`, `Commandes` (CRUD complet, méthodes statiques pour les opérations sans état, jointure à 4 tables pour l'affichage d'une commande)
+- `main.py` — menu console : gestion des produits, des clients, et des commandes (avec insertion en masse de produits par commande et validation des saisies)
+
+**Concepts mis en œuvre :** connexion/curseur SQLite, requêtes paramétrées (`?`), clés étrangères (`PRAGMA foreign_keys`), jointures multi-tables, méthodes statiques vs méthodes d'instance, conversion de résultats SQL en DataFrame pandas.
+
+**Lancer le projet :**
+```bash
+cd sql
+python script.py   # initialise la base (une seule fois)
+python main.py      # lance l'application
+```
+
+## 🌐 site_web/ — Portfolio personnel
 `index.html`, `script.js`, `style.css`
 
-Page web front-end (HTML, CSS, JavaScript).
+Page one-page présentant mon parcours et mes projets (Bootstrap + JS), avec les sections Accueil, À propos, Projets, Compétences et Contact.
 
 ## 🎯 Objectif du dépôt
 

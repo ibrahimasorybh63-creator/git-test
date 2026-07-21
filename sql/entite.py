@@ -1,0 +1,95 @@
+class Produit:
+    def __init__(self,conn,nom,prix,type_prod,produits_id=None):
+        self.nom = nom 
+        self.type_prod = type_prod
+        self.prix = prix
+        self.produits_id = produits_id
+        self.conn = conn
+    def ajouter_en_base(self):
+        cur = self.conn.cursor()
+        cur.execute("insert into produits (nom,prix,type_prod) values (?,?,?);",
+        (self.nom,self.prix,self.type_prod))
+        self.conn.commit()
+        self.produits_id = cur.lastrowid
+    @staticmethod
+    def modifier_prix(conn,prix,id):
+        cur = conn.cursor()
+        cur.execute("update produits set prix = ? where produits_id = ?;",(prix,id))
+        conn.commit()
+    @staticmethod
+    def supprimer(conn,id):
+        cur = conn.cursor()
+        cur.execute("delete from produits where produits_id = ?;",(id,))
+        conn.commit()
+    def afficher(self):
+        cur = self.conn.cursor()
+        cur.execute("select * from produits where produits_id = ?;",(self.produits_id,))
+        view = cur.fetchall()
+        return view
+    
+class Clients:
+    def __init__(self,conn,nom,prenom,adresse=None,clients_id=None):
+        self.nom = nom
+        self.prenom = prenom
+        self.adresse = adresse
+        self.clients_id = clients_id
+        self.conn = conn
+    def ajouter_en_base(self):
+        cur = self.conn.cursor()
+        cur.execute("insert into clients (nom,prenom,adresse) values (?,?,?);",(self.nom,self.prenom,self.adresse))
+        self.conn.commit()
+        self.clients_id = cur.lastrowid
+    @staticmethod
+    def modifier_client(conn,nom,prenom,adresse,id):
+        cur = conn.cursor()
+        cur.execute("update clients set nom = ?, prenom = ?, adresse = ? where clients_id = ?;",(nom,prenom,adresse,id))
+        conn.commit()
+    @staticmethod
+    def supprimer(conn,id):
+        cur = conn.cursor()
+        cur.execute("delete from clients where clients_id = ?;",(id,))
+        conn.commit()
+    def afficher(self):
+        cur = self.conn.cursor()
+        cur.execute("select * from clients where clients_id = ?;",(self.clients_id,))
+        view = cur.fetchall()
+        return view
+
+class Commandes:
+    def __init__(self,conn,date_comm,clients_id,liste_produits,commandes_id=None):
+        self.conn = conn
+        self.date_comm = date_comm
+        self.clients_id = clients_id
+        self.commandes_id = commandes_id
+        self.liste_produits = liste_produits
+    def ajouter_en_base(self):      
+        cur = self.conn.cursor()
+        cur.execute("insert into commandes (date_comm,clients_id) values (?,?);",(self.date_comm,self.clients_id))
+        self.conn.commit()
+        self.commandes_id= cur.lastrowid
+        for produits_id , quantite , prix_unitaire in self.liste_produits:
+            self.ajouter_commandes(produits_id,quantite,prix_unitaire)
+    def ajouter_commandes(self,produits_id,quantite,prix_unitaire): 
+        cur = self.conn.cursor()
+        cur.execute("insert into details_comm (commandes_id,produits_id,quantite,prix_unitaire) values (?,?,?,?);",(self.commandes_id,produits_id,quantite,prix_unitaire))
+        self.conn.commit()
+    @staticmethod
+    def afficher(conn,id):
+        cur = conn.cursor()
+        requete = """select cl.nom,cl.prenom,cl.adresse,p.produits_id,p.nom,p.type_prod,c.date_comm,c.commandes_id,d.quantite,d.prix_unitaire
+        from clients as cl
+        join commandes as c on c.clients_id = cl.clients_id
+        join details_comm as d on d.commandes_id = c.commandes_id
+        join produits as p on p.produits_id = d.produits_id
+        where c.commandes_id = ?;
+        """
+        cur.execute(requete,(id,))
+        view= cur.fetchall()
+        return view,cur
+
+
+def liste_produits(conn):
+    cur = conn.cursor()
+    cur.execute("select * from produits")
+    view = cur.fetchall()
+    return view
